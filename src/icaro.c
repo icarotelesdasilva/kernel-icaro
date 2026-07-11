@@ -1,7 +1,10 @@
+#include "drivers/vga.c"
+
 void kmain(void)  {
 
-while(1);
+vga_print("Hello, Kernel!");
+
+while(1) {
 
 }
-
-
+}
