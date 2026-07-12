@@ -1,0 +1,46 @@
+SHELL=bash
+
+BACKGROUNDS=$(wildcard ./backgrounds/*/*.png)
+ICONSVGS=$(wildcard ./assets/svg/icons*/*.svg)
+SELECTSVGS=$(wildcard ./assets/svg/select/*.svg)
+PREVIEWS=$(wildcard ./docs/*.png)
+
+ICON_RESOLUTIONS=32 48 64
+
+.PHONY: clean full-clean compress-backgrounds generate-icons generate-select generate-gif generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS) $(PREVIEWS)
+
+clean:
+	@rm -rvf "./build"
+	@rm -rvf "./backgrounds/upstream"
+full-clean:
+	@rm -rvf "./assets/icons"*"/"*
+	@rm -rvf "./assets/select/"*
+	@rm -rvf "./build"
+compress-backgrounds:
+	@$(MAKE) $(BACKGROUNDS)
+generate-icons:
+	@$(MAKE) $(ICONSVGS)
+generate-select:
+	@$(MAKE) $(SELECTSVGS)
+generate-gif:
+	@echo "Compressing previews..."
+	@$(MAKE) $(PREVIEWS)
+	@cd docs/; \
+	echo "Generating gif..."; \
+	convert -delay 150 *.png +dither -alpha off -loop 0 Gallery.gif
+generate-all:
+	@$(MAKE) generate-icons generate-select compress-backgrounds
+	@$(MAKE) generate-gif
+	@$(MAKE) check
+check:
+	@./icon_builder.py "--check-files" "assets"
+$(ICONSVGS):
+	@./icon_builder.py "--generate" "icon" "$(ICON_RESOLUTIONS)" "$@"
+$(SELECTSVGS):
+	@./icon_builder.py "--generate" "select" "$(ICON_RESOLUTIONS)" "$@"
+$(BACKGROUNDS):
+	@echo "Compressing $@..."
+	@optipng -nc -strip all --quiet "$@"
+$(PREVIEWS):
+	@echo "Compressing $@..."
+	@optipng -o7 -strip all --quiet "$@"
