@@ -39,7 +39,14 @@ Welcome to the legitimate repository for a kernel designed for a future OS.
  Current version 1.0.
 
 
+
+
+
 > I'm open to new fixes and tips.
+
+
+
+
 
 
 
