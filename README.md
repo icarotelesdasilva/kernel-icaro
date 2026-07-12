@@ -47,10 +47,6 @@ These are the requirements I recommend.
 
 
 
- 
- Current version 1.0.
-
-
 
 
 
