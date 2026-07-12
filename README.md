@@ -47,6 +47,9 @@ Welcome to the legitimate repository for a kernel designed for a future OS.
 
 
 
+# STATEMENT 
+I declare that AI was used in the project with caution, tested as support, AI was not used without correction. Artificial intelligence in complex files is only for technical support and clarification, everything has been highly tested and debugged, so don't worry about damaging something because it has already been tested as much as possible, I worry about the health of the hardware, so I made a very big fix.
+
 
 
 ## License
