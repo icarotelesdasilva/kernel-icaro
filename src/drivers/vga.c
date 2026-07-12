@@ -27,7 +27,7 @@ void vga_print(char *str) {
         else {
             int pos = (linha * 80 + coluna) * 2;
             vga[pos]   = str[i];
-            vga[pos+1] = 0x07;
+            vga[pos+1] = 0x03;
             coluna++;
         }
 
