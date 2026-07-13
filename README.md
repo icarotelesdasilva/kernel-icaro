@@ -24,7 +24,7 @@ Welcome to the legitimate repository for a kernel designed for a future OS.
 
  
  
- 1-  Type ```Make Clean``` to clean up the files
+ 1-  Type ```make clean``` to clean up the files
  
  
  2- ```make all``` to compile all files
