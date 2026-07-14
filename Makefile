@@ -18,11 +18,11 @@ CFLAGS = -m32 -ffreestanding -nostdlib -fno-pic
 boot.o: boot/boot.asm
 	$(ASM) -f elf32 boot/boot.asm -o boot.o
 
-icaro.o: src/icaro.c
-	$(CC) $(CFLAGS) -c src/icaro.c -o icaro.o
+kernel.o: src/kernel.c
+	$(CC) $(CFLAGS) -c src/kernel.c -o kernel.o
 
-vmicaro: boot.o icaro.o gdt.o gdt_asm.o mem.o
-	$(LD) -T linker.ld boot.o icaro.o gdt.o gdt_asm.o mem.o -o vmicaro
+vmicaro: boot.o kernel.o gdt.o gdt_asm.o mem.o
+	$(LD) -T linker.ld boot.o kernel.o gdt.o gdt_asm.o mem.o -o vmicaro
 
 gdt.o: system/gdt.c
 	$(CC) $(CFLAGS) -c system/gdt.c -o gdt.o
@@ -37,8 +37,8 @@ all: vmicaro
 	mkdir -p isodir/boot/grub
 	cp vmicaro isodir/boot/vmicaro
 	cp boot/grub/grub.cfg isodir/boot/grub/grub.cfg
-	grub-mkrescue -o icaro.iso isodir/
+	grub-mkrescue -o vmicaro.iso isodir/
 
 clean:
-	rm -f *.o vmicaro icaro.iso
+	rm -f *.o vmicaro vmicaro.iso
 	rm -rf isodir/
