@@ -17,6 +17,10 @@ Welcome to kernel-icaro (temporary name) a project that is being made to facilit
  2- New fixes, and general boot optimization.
 
  3 - Simple memory management preventing kernel from overwriting reserved and important memory.
+
+ 4- removed grub theme.
+
+ 5- added Kernel Panic.
  
  *in addition to more organized files and new Updates will only be written if they are very large or important.*
 
