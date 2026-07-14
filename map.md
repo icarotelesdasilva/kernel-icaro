@@ -1,20 +1,19 @@
-.
-├── boot
 
+├── boot
 
 │   ├── boot.asm
 
-── grub
+│   └── grub
 
-├── background.png
+│       └── grub.cfg
 
- ├── grub.cfg
-├
-── LICENSE
+├── LICENSE
 
 ├── linker.ld
 
 ├── Makefile
+
+├── map.md
 
 ├── README.md
 
@@ -35,9 +34,3 @@
     ├── gdt.h
     
     └── mem.c
-35 directories, 769 files, in total.
-
-
-
-
-
