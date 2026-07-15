@@ -1,3 +1,10 @@
+/*
+ * Kernel-Ícaro (vmicaro)
+ * Copyright (c) 2026 Ícaro Teles da Silva (@icarotelesdasilva)
+ * 
+ */
+
+
 #include <stdint.h>
 #include <stddef.h>
 

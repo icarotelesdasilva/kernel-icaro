@@ -1,3 +1,10 @@
+/*
+ * Kernel-Ícaro (vmicaro)
+ * Copyright (c) 2026 Ícaro Teles da Silva (@icarotelesdasilva)
+ * 
+ */
+
+
 #ifndef PMM_H
 #define PMM_H
 
