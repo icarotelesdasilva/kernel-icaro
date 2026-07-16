@@ -9,3 +9,5 @@ pmm.o
 vmicaro
 vmicaro.iso
 qemu.log
+idt.o
+idt.asm.o	
