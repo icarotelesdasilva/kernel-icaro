@@ -7,7 +7,6 @@
 
 #include "gdt.h"   
 #include "idt.h"   
-#include "pmm.h"
 
 extern void vga_print(const char* str);  
 
@@ -22,13 +21,6 @@ void kmain(void) {
         while(1);
     }
 
-    pmm_init();  
-
-    void* memoria = pmm_alocar_pagina();  
-    if (memoria == 0) {
-        vga_print("Kernel Panic!\nUnable to allocate physical memory page.");
-        while(1);
-    }
 
     vga_print("Hello, Kernel!");
 
