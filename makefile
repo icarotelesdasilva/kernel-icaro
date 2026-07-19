@@ -45,7 +45,13 @@ clean:
 	rm -f $(OBJ) vmicaro vmicaro.iso
 	rm -rf isodir/
 
+dev: vmicaro.iso
+	qemu-system-x86_64 \
+	    -cdrom vmicaro.iso \
+	    -d int,cpu_reset,guest_errors \
+	    -D logs_completos.txt \
+	    -no-reboot -no-shutdown
+	    
 run: vmicaro.iso
 	qemu-system-x86_64 -cdrom vmicaro.iso
-.PHONY: all run clean
-
+.PHONY: all run dev clean
