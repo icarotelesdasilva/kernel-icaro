@@ -9,28 +9,34 @@ See the [LICENSE](LICENSE) file for more details.
 
 │   └── i386
 
-│       ├── boot.asm
+│       ├── boot
 
-│       ├── gdt.asm
+│       │   └── boot.asm
 
-│       ├── gdt.c
+│       ├── cpu
 
-│       ├── idt.asm
+│       │   ├── gdt.asm
 
-│       ├── idt.c
+│       │   ├── gdt.c
+
+│       │   ├── idt.asm
+
+│       │   ├── idt.c
+
+│       │   └── pic.c
+
+│       ├── drivers
+
+│       │   ├── kernel_panic.c
+
+│       │   └── vga.c
 
 │       ├── linker.ld
 
-│       └── pmm.c
-
-├── drivers
-
-│   ├── kernel_panic.c
-
-│   └── vga.c
+│       └── mm
+│           └── pmm.c
 
 ├── grub
-
 │   └── grub.cfg
 
 ├── include
@@ -39,7 +45,7 @@ See the [LICENSE](LICENSE) file for more details.
 
 │   ├── idt.h
 
-│   └── pmm.h
+│   └── pic.h
 
 ├── kernel
 
@@ -47,27 +53,21 @@ See the [LICENSE](LICENSE) file for more details.
 
 ├── LICENSE
 
-├── Makefile
+├── makefile
+
+├── map.md
 
 ├── README.md
 
 └── test
 
-    ├── keyboard
+    └── keyboard
 
-    │   ├── keyboard.asm
+        ├── keyboard.asm
 
-    │   ├── keyboard.c
+        ├── keyboard.c
 
-    │   └── keyboard.h
-
-    └── PIC
-
-        ├── pic.asm
-
-        ├── pic.c
-
-        └── pic.h
+        └── keyboard.h
 ```
 
  
