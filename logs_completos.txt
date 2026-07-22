@@ -1,4 +1,4 @@
-CPU Reset (CPU 0)
+PU Reset (CPU 0)
 EAX=00000000 EBX=00000000 ECX=00000000 EDX=00000000
 ESI=00000000 EDI=00000000 EBP=00000000 ESP=00000000
 EIP=00000000 EFL=00000000 [-------] CPL=0 II=0 A20=0 SMM=0 HLT=0
@@ -476,13 +476,13 @@ CCS=00000004 CCD=00000001 CCO=EFLAGS
 EFER=0000000000000000
 Servicing hardware INT=0x08
 Servicing hardware INT=0x0e
-Servicing hardware INT=0x0e
 Servicing hardware INT=0x08
 Servicing hardware INT=0x0e
 Servicing hardware INT=0x0e
 Servicing hardware INT=0x0e
-Servicing hardware INT=0x0e
 Servicing hardware INT=0x08
+Servicing hardware INT=0x0e
+Servicing hardware INT=0x0e
 Servicing hardware INT=0x08
 Servicing hardware INT=0x08
 Servicing hardware INT=0x08
@@ -507,6 +507,7 @@ Servicing hardware INT=0x08
 Servicing hardware INT=0x09
 Servicing hardware INT=0x08
 Servicing hardware INT=0x08
+Servicing hardware INT=0x08
 Servicing hardware INT=0x09
 Servicing hardware INT=0x08
 Servicing hardware INT=0x08
@@ -522,4 +523,8 @@ Servicing hardware INT=0x08
 Servicing hardware INT=0x08
 Servicing hardware INT=0x08
 Servicing hardware INT=0x08
-Servicing hardware INT=0x0e
+Servicing hardware INT=0x08
+Servicing hardware INT=0x08
+Servicing hardware INT=0x08
+Servicing hardware INT=0x08
+icr@icr:~/lab$ 
