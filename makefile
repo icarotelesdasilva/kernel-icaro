@@ -17,7 +17,7 @@ arch/i386/cpu/gdt.o \
 arch/i386/cpu/gdt_flush.o \
 arch/i386/cpu/idt.o \
 arch/i386/cpu/idt_load.o \
-kernel/kernel.o
+arch/i386/kernel/kernel.o
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
