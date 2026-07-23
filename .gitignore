@@ -12,3 +12,4 @@ qemu.log
 idt.o
 idt.asm.o	
 logs_completos.txt
+logs_completos.txt
