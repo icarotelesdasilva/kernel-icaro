@@ -1,35 +1,37 @@
-# Kernel-Icaro (vmicaro)
-# Copyright (c) 2026 Icaro Teles da Silva (@icarotelesdasilva)
+# Kernel-Ícaro (vmicaro)
+# Copyright (c) 2026 Ícaro Teles da Silva (@icarotelesdasilva)
 .PHONY: all run dev clean
-
-ASM     = nasm
-CC      = gcc
-LD      = ld -m elf_i386
+ASM = nasm
+CC = gcc
+LD = ld -m elf_i386
 CONVERT = convert
-
 CFLAGS = -m32 -ffreestanding -nostdlib -fno-pic -Iinclude
-
 OBJ = arch/i386/boot/boot.o \
-arch/i386/boot/multiboot.o \
-arch/i386/drivers/vga.o \
-arch/i386/drivers/kernel_panic.o \
-arch/i386/cpu/gdt.o \
-arch/i386/cpu/gdt_flush.o \
-arch/i386/cpu/idt.o \
-arch/i386/cpu/idt_load.o \
-arch/i386/kernel/kernel.o
+	arch/i386/drivers/vga.o \
+	arch/i386/drivers/kernel_panic.o \
+	arch/i386/cpu/gdt.o \
+	arch/i386/cpu/gdt_flush.o \
+	arch/i386/cpu/idt.o \
+	arch/i386/cpu/idt_load.o \
+	arch/i386/interrupts/interrupt.o \
+	arch/i386/interrupts/interrupt_asm.o \
+	arch/i386/boot/multiboot.o \
+	arch/i386/kernel/kernel.o
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+arch/i386/interrupts/interrupt_asm.o: arch/i386/interrupts/interrupt.asm
+	$(ASM) -f elf32 $< -o $@
+
 arch/i386/boot/boot.o: arch/i386/boot/boot.asm
-	$(ASM) -f elf32 arch/i386/boot/boot.asm -o arch/i386/boot/boot.o
+	$(ASM) -f elf32 $< -o $@
 
 arch/i386/cpu/gdt_flush.o: arch/i386/cpu/gdt_flush.s
-	nasm -f elf32 arch/i386/cpu/gdt_flush.s -o arch/i386/cpu/gdt_flush.o
+	$(ASM) -f elf32 $< -o $@
 
 arch/i386/cpu/idt_load.o: arch/i386/cpu/idt.asm
-	nasm -f elf32 arch/i386/cpu/idt.asm -o arch/i386/cpu/idt_load.o
+	$(ASM) -f elf32 $< -o $@
 
 vmicaro: $(OBJ)
 	$(LD) -T arch/i386/linker.ld $(OBJ) -o vmicaro
