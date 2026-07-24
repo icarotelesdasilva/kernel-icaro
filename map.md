@@ -1,50 +1,65 @@
-.
+├
+── arch
 
-├── arch
+│   ├── i386
 
-│   └── i386
+│   │   ├── boot
 
-│       ├── boot
+│   │   │   ├── boot.asm
 
-│       │   └── boot.asm
+│   │   │   ├── multiboot.c
 
-│       ├── cpu
+│   │   │   └── multiboot.h
 
-│       │   ├── gdt.asm
+│   │   ├── cpu
 
-│       │   ├── gdt.c
+│   │   │   ├── gdt.asm
 
-│       │   ├── idt.asm
+│   │   │   ├── gdt.c
 
-│       │   ├── idt.c
+│   │   │   ├── gdt_flush.s
 
-│       │   └── pic.c
+│   │   │   ├── idt.asm
 
-│       ├── drivers
+│   │   │   ├── idt.c
 
-│       │   ├── kernel_panic.c
+│   │   │   └── idt.h
 
-│       │   └── vga.c
+│   │   ├── drivers
+
+│   │   │   ├── kernel_panic.c
+
+│   │   │   └── vga.c
+
+│   │   ├── interrupts
+
+│   │   │   ├── interrupt.asm
+
+│   │   │   ├── interrupt.c
+
+│   │   │   └── interrupt.h
+
+│   │   ├── kernel
+
+│   │   │   └── kernel.c
+
+│   │   ├── linker.ld
+
+│   │   └── mm
+
+│   └── Xtensa
 
 │       ├── linker.ld
 
-│       └── mm
-│           └── pmm.c
+│       ├── makefile
+
+│       └── start.S
 
 ├── grub
+
 │   └── grub.cfg
 
 ├── include
-
-│   ├── gdt.h
-
-│   ├── idt.h
-
-│   └── pic.h
-
-├── kernel
-
-│   └── kernel.c
 
 ├── LICENSE
 
@@ -52,16 +67,5 @@
 
 ├── map.md
 
-├── README.md
-
-└── test
-
-    └── keyboard
-
-        ├── keyboard.asm
-
-        ├── keyboard.c
-
-        └── keyboard.h
-
+└── README.md
 
